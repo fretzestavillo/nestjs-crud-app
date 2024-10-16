@@ -2,7 +2,15 @@
     "name": "@nestjs-crud-app/source",
     "version": "0.0.0",
     "license": "MIT",
-    "scripts": {},
+    "scripts": {
+        "dev:backend": "nodemon --watch apps/backend --exec npx nx run backend:serve",
+        "dev:frontend": "nodemon --watch apps/web --exec npx nx run web:serve",
+        "dev": "npx nx run-many --target=serve --projects=backend,web",
+        "build:backend": "npx nx run backend:build",
+        "build:frontend": "npx nx run web:build ",
+        "build": "npx nx run backend:build && npx nx run web:build ",
+        "docker": "docker-compose up --build"
+    },
     "private": true,
     "dependencies": {
         "@nestjs/common": "^10.0.0",

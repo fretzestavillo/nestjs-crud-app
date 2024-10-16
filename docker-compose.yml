@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: crud-image
+      POSTGRES_PASSWORD: crud-image
+      POSTGRES_DB: crud-image
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  backend:
+    extends:
+      file: ./docker/base.yml
+      service: nx
+    ports:
+      - 3000:3000
+    depends_on:
+            - postgres
+    environment:
+      PORT: 3000
+      ALLOWED_ORIGINS: http://localhost:4200
+    volumes:
+      - ./backend:/app
+    command: |
+      nx serve backend
+  web:
+    extends:
+      file: ./docker/base.yml
+      service: nx
+    ports:
+      - 4200:4200
+    environment:
+      NX_PUBLIC_API_URL: http://localhost:3000
+    command: |
+      nx serve web --host=0.0.0.0
+
+volumes:
+  postgres_data:

@@ -1,28 +1,28 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { SignUp } from "./user-components/SignUp.tsx";
-import { SignIn } from "./user-components/SignIn.tsx";
-import { UserHome } from "./picture-components/UserHome.tsx";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { SignUp } from './user-components/SignUp';
+import { SignIn } from './user-components/SignIn';
+import { UserHome } from './picture-components/UserHome';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <SignUp />,
   },
   {
-    path: "/SignIn",
+    path: '/SignIn',
     element: <SignIn />,
   },
   {
-    path: "/UserHome",
+    path: '/UserHome',
     element: <UserHome />,
   },
 ]);
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );
