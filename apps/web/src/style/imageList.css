@@ -1,0 +1,25 @@
+/* styles.css */
+body {
+    background-color: #f0f0f0; /* Light grey background */
+  }
+  
+  .task-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; /* Space between grid items */
+  }
+  
+  .card {
+    text-align: center;
+    width: 100%; /* Ensures the card takes the full width of the grid column */
+    background-color: rgb(77, 66, 66); /* Optional: background for the card */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+  }
+  
+  .card-img-top {
+    width: 100%; /* Set the image width to 100% of the card */
+    height: 100px; /* Set a fixed height */
+    object-fit: cover; /* This will maintain aspect ratio and fill the area */
+  }
+  
